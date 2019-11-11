@@ -12,7 +12,7 @@ public class Broker {
 
     private static ArrayBlockingQueue<String> mq = new ArrayBlockingQueue<String>(MAX_SIZE);
 
-    public void produce(String msg) {
+    public static void produce(String msg) {
 
         if(mq.offer(msg)) {
 
@@ -33,10 +33,12 @@ public class Broker {
 
             System.out.println("当前消息被消费：" + msg + ",暂存消息数量为：" + mq.size());
         } else {
-
+            System.out.println("当前没有信息可以被消费");
         }
 
-        return null;
+        System.out.println("============================");
+
+        return msg;
     }
 
 }
