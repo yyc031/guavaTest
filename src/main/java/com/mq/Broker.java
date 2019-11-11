@@ -16,7 +16,7 @@ public class Broker {
 
         if(mq.offer(msg)) {
 
-            System.out.println("消息投递成功：" + msg + "当前在暂存消息数量为：" + mq.size());
+            System.out.println("消息投递成功：" + msg + ",当前在暂存消息数量为：" + mq.size());
 
         } else {
 
@@ -25,5 +25,18 @@ public class Broker {
         System.out.println("================================");
     }
 
+    public static String consume() {
+
+        String msg = mq.poll();
+
+        if(msg != null) {
+
+            System.out.println("当前消息被消费：" + msg + ",暂存消息数量为：" + mq.size());
+        } else {
+
+        }
+
+        return null;
+    }
 
 }
